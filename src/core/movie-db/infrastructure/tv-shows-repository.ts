@@ -1,33 +1,29 @@
 import { RequestResponse } from "@/core/types/RequestResponse";
-import { ITvShowEntity } from "../domain/tv-shows";
+import { ITvShowDetail, ITvShowEntity } from "../domain/tv-shows";
 import { requestConfig } from "@/core/utils/requestConfig";
+import { movieDbConfig } from "../config";
+
+function responseHandler(res: Response) {
+  if (!res.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return res.json();
+}
 
 export interface ITvShowsRepository {
-  get({
-    apiKey,
-    baseUrl,
-  }: {
-    apiKey: string;
-    baseUrl: string;
-  }): Promise<RequestResponse<ITvShowEntity>>;
+  get(): Promise<RequestResponse<ITvShowEntity>>;
+  getTvDetail({ id }: { id: string }): Promise<RequestResponse<ITvShowDetail>>;
 }
 
 export class TvShowsRepository implements ITvShowsRepository {
-  async get({
-    apiKey,
-    baseUrl,
-  }: {
-    apiKey: string;
-    baseUrl: string;
-  }): Promise<RequestResponse<ITvShowEntity>> {
+  async get(): Promise<RequestResponse<ITvShowEntity>> {
     try {
-      const response: ITvShowEntity = await fetch(
-        `${baseUrl}/3/discover/tv?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`,
+      const response = await fetch(
+        `${movieDbConfig.baseUrl}/3/discover/tv?api_key=${movieDbConfig.apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`,
         {
           ...requestConfig("GET"),
-          cache: "no-store",
         }
-      ).then((res) => res.json());
+      ).then(responseHandler);
 
       return { data: response };
     } catch (err) {
@@ -39,6 +35,25 @@ export class TvShowsRepository implements ITvShowsRepository {
           total_results: 0,
         },
       };
+    }
+  }
+
+  async getTvDetail({
+    id,
+  }: {
+    id: string;
+  }): Promise<RequestResponse<ITvShowDetail>> {
+    try {
+      const response = await fetch(
+        `${movieDbConfig.baseUrl}/3/tv/${id}?api_key=${movieDbConfig.apiKey}`,
+        {
+          ...requestConfig("GET"),
+        }
+      ).then(responseHandler);
+
+      return { data: response };
+    } catch (err) {
+      return { data: {} };
     }
   }
 }

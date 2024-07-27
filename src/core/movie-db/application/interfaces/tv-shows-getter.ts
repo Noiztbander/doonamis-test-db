@@ -1,5 +1,7 @@
-import { ITvShowEntity } from "../../domain/tv-shows";
+import { ITvShowDetail, ITvShowEntity } from "../../domain/tv-shows";
 
 export interface ITvShowsGetter {
-  get(apiKey: string): Promise<ITvShowEntity>;
+  get(): Promise<ITvShowEntity>;
+
+  getTvDetail(id: string): Promise<ITvShowDetail>;
 }
