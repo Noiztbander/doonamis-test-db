@@ -25,7 +25,10 @@ export default class HomeTemplate extends Component<IHomeTemplateProps> {
             <Hero />
           </SectionContainer>
           <SectionContainer>
-            <FeaturedClips collections={this.props.tvShows.results} />
+            <FeaturedClips
+              collections={this.props.tvShows.results}
+              title="More: "
+            />
           </SectionContainer>
         </main>
       </AppProvider>

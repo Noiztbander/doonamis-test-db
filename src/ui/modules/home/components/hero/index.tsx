@@ -43,7 +43,7 @@ class Hero extends Component {
               key={state.selectedMedia.id}
               scroll={true}
               href={`${MOVIE_DB_PATHS.TV_DETAIL}/${state.selectedMedia.id}`}>
-              See more
+              More about
             </Link>
           </div>
         </div>

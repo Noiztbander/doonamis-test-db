@@ -17,5 +17,7 @@ export default async function TvDetails({ params }: Props) {
     new TvShowsRepository()
   ).getTvDetail(params.id);
 
-  return <DetailsTemplate media={tvDetails} />;
+  const tvShows = await new TvShowsGetter(new TvShowsRepository()).get();
+
+  return <DetailsTemplate media={tvDetails} tvShows={tvShows} />;
 }
