@@ -1,0 +1,18 @@
+.noiztLogo_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  h1 {
+    font-size: 14pt;
+    padding-left: 10px;
+    font-weight: bolder;
+    color: rgb(156, 156, 156);
+  }
+
+  img {
+    height: 35px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
