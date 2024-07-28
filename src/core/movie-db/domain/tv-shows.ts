@@ -35,6 +35,14 @@ export interface ITvShowDetail {
   in_production?: boolean;
   languages?: string[];
   last_air_date?: string;
+  first_air_date?: string;
+  created_by: {
+    id: string;
+    credit_id: string;
+    name: string;
+    original_name: string;
+    profile_path: string;
+  }[];
   last_episode_to_air?: {
     id: number;
     name: string;
