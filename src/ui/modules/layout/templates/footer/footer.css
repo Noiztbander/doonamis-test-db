@@ -1,0 +1,39 @@
+.footer_container {
+  width: 100%;
+  background-color: white;
+  padding: 25px;
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+
+      p {
+        transition: 0.3s;
+        font-size: 10pt;
+        cursor: pointer;
+      }
+
+      p:hover {
+        font-weight: bolder;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+    }
+
+    > p {
+      font-size: 8pt;
+    }
+  }
+}
