@@ -4,6 +4,7 @@ import { Component } from "react";
 
 import "./nav.css";
 import NoiztLogo from "@/ui/modules/common/components/logos/noizt-logo";
+import AvatarName from "@/ui/modules/common/components/avatar/avatar-name";
 
 export default class Nav extends Component {
   render() {
@@ -14,7 +15,10 @@ export default class Nav extends Component {
           <nav>
             <p>TV shows</p>
             <p>Movies</p>
-            <p>Account</p>
+            <AvatarName
+              name="Erick N"
+              src="/images/profile/profile_picture.png"
+            />
             <span className="material-symbols-outlined">search</span>
             <span className="material-symbols-outlined">shopping_bag</span>
           </nav>
