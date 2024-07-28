@@ -16,7 +16,7 @@ import reducerFactory from "../utils/reducerFactory";
 import { AppReducerHandler } from "./app-reducer";
 import { ITvShowEntity } from "@/core/movie-db/domain/tv-shows";
 
-const AppContext = createContext<IAppContext | null>(null);
+export const AppContext = createContext<IAppContext | null>(null);
 
 interface AppProviderProps {
   children?: React.ReactNode;
@@ -40,19 +40,3 @@ export const AppProvider = ({ children, tvShows }: AppProviderProps) => {
     <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
   );
 };
-
-export const useAppContext = () => {
-  const context = useContext(AppContext);
-  if (context === null) {
-    throw new Error("useAppContext must be used within a AppProvider");
-  }
-  return context;
-};
-
-export function componentWithStore(Component: Component | ReactNode | any) {
-  return function WrappedComponent(props: any) {
-    const { dispatch, state } = useAppContext();
-
-    return <Component {...props} dispatch={dispatch} state={state} />;
-  };
-}
