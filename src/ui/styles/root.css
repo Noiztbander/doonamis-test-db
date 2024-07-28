@@ -1,7 +1,9 @@
 :root {
   --v-max-mobile-width: 600px;
   --v-max-tablet-width: 1000px;
-  --v-max-desktop-width: 1400;
+  --v-max-desktop-width: 1400px;
+
+  --s-gap: 12px;
 
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
