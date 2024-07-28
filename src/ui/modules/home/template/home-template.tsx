@@ -6,7 +6,6 @@ import { AppProvider } from "@/ui/lib/context/app-context/app-context";
 import FeaturedClips from "../components/featured-clips";
 import { ITvShowEntity } from "@/core/movie-db/domain/tv-shows";
 import SectionContainer from "../../layout/templates/section-container";
-import "./home-template.css";
 import Hero from "../components/hero";
 
 interface IHomeTemplateProps {

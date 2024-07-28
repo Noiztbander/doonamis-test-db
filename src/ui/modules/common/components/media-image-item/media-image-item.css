@@ -1,7 +1,8 @@
 .mediaIamgeitem-container {
+  cursor: pointer;
+
   img {
     width: 100%;
-    border-radius: 12px;
     object-fit: cover;
   }
 
@@ -17,7 +18,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    padding-top: 10px;
+    padding-top: 5px;
     padding-bottom: 40px;
   }
 }
