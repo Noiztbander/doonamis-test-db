@@ -1,0 +1,11 @@
+.details_container {
+  padding-bottom: var(--s-gap);
+
+  .divider {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--s-gap);
+    height: auto;
+  }
+}

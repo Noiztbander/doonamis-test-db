@@ -37,7 +37,7 @@ class Hero extends Component {
             </div>
 
             <Link
-              className="seeMore_btn"
+              className="primary_btn"
               passHref={true}
               prefetch={true}
               key={state.selectedMedia.id}
@@ -50,8 +50,8 @@ class Hero extends Component {
 
         <div className="background">
           <Image
-            width={1000}
-            height={1000}
+            width={600}
+            height={900}
             src={`${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${state.selectedMedia.backdrop_path}`}
             alt={`${state.selectedMedia.name}`}
             loading="lazy"

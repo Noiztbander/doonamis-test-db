@@ -20,7 +20,7 @@ export default class HomeTemplate extends Component<IHomeTemplateProps> {
   render() {
     return (
       <AppProvider tvShows={this.props.tvShows}>
-        <main className="home_container">
+        <main className="home_container" style={{ minHeight: "90vh" }}>
           <SectionContainer>
             <Hero />
           </SectionContainer>
