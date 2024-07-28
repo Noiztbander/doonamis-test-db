@@ -1,0 +1,29 @@
+.carousel_container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .carousel_item {
+    width: 300px;
+  }
+
+  .arrow_left {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 100px;
+  }
+
+  .arrow_right {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

@@ -32,7 +32,11 @@ export default class SideBar extends Component<ISideBarTemplateProps> {
                 <AvatarName
                   key={id}
                   name={name}
-                  src={`${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${profile_path}`}
+                  src={
+                    profile_path
+                      ? `${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${profile_path}`
+                      : undefined
+                  }
                 />
               );
             })}
@@ -48,11 +52,11 @@ export default class SideBar extends Component<ISideBarTemplateProps> {
           <p>{this.props.media.number_of_episodes}</p>
         </div>
         <div>
-          <h3>Seassons:</h3>
+          <h3>Seasons:</h3>
           <p>{this.props.media.number_of_seasons}</p>
         </div>
 
-        {this.props.media.production_companies && (
+        {!!this.props.media.production_companies?.length && (
           <div className="avatars">
             <h3>Companies:</h3>
             {this.props.media.production_companies.map(

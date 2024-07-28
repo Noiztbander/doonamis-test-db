@@ -84,7 +84,7 @@ export interface ITvShowDetail {
     iso_3166_1: string;
     name: string;
   }[];
-  seasons?: {
+  seasons: {
     air_date: string;
     episode_count: number;
     id: number;
