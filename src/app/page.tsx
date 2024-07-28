@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const tvShows = await new TvShowsGetter(new TvShowsRepository()).get();
+  const discoverTvShows = await new TvShowsGetter(
+    new TvShowsRepository()
+  ).getDiscover();
 
-  return <HomeTemplate tvShows={tvShows} />;
+  return <HomeTemplate discoverTvShows={discoverTvShows} />;
 }

@@ -16,13 +16,13 @@ import FeaturedClips from "../../home/components/featured-clips";
 
 interface IDetailsTemplateProps {
   media: ITvShowDetail;
-  tvShows: ITvShowEntity;
+  discoverTvShows: ITvShowEntity;
 }
 
 export default class DetailsTemplate extends Component<IDetailsTemplateProps> {
   render() {
-    const seasonCarouselItems: ICarouselImage[] = this.props.media.seasons?.map(
-      ({ id, poster_path, name }) => {
+    const seasonCarouselItems: ICarouselImage[] =
+      this.props.media?.seasons?.map(({ id, poster_path, name }) => {
         return {
           id,
           name,
@@ -30,8 +30,7 @@ export default class DetailsTemplate extends Component<IDetailsTemplateProps> {
             ? `${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${poster_path}`
             : undefined,
         };
-      }
-    );
+      });
 
     return (
       <AppProvider>
@@ -45,8 +44,8 @@ export default class DetailsTemplate extends Component<IDetailsTemplateProps> {
                 <BasicCarousel items={seasonCarouselItems} title="Seasons:" />
 
                 <FeaturedClips
-                  collections={this.props.tvShows.results}
-                  title="More: "
+                  collections={this.props.discoverTvShows.results}
+                  title="Discover: "
                 />
               </div>
             </div>

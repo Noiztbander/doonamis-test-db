@@ -9,25 +9,25 @@ import SectionContainer from "../../layout/templates/section-container";
 import Hero from "../components/hero";
 
 interface IHomeTemplateProps {
-  tvShows: ITvShowEntity;
+  discoverTvShows: ITvShowEntity;
 }
 
 export default class HomeTemplate extends Component<IHomeTemplateProps> {
-  constructor(props: { tvShows: ITvShowEntity }) {
+  constructor(props: { discoverTvShows: ITvShowEntity }) {
     super(props);
   }
 
   render() {
     return (
-      <AppProvider tvShows={this.props.tvShows}>
+      <AppProvider tvShows={this.props.discoverTvShows}>
         <main className="home_container" style={{ minHeight: "90vh" }}>
           <SectionContainer>
             <Hero />
           </SectionContainer>
           <SectionContainer>
             <FeaturedClips
-              collections={this.props.tvShows.results}
-              title="More: "
+              collections={this.props.discoverTvShows.results}
+              title="Discover: "
             />
           </SectionContainer>
         </main>

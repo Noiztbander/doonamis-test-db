@@ -1,4 +1,3 @@
-import { movieDbConfig } from "../../config";
 import { ITvShowDetail, ITvShowEntity } from "../../domain/tv-shows";
 import { ITvShowsRepository } from "../../infrastructure/tv-shows-repository";
 import { ITvShowsGetter } from "../interfaces/tv-shows-getter";
@@ -6,8 +5,8 @@ import { ITvShowsGetter } from "../interfaces/tv-shows-getter";
 export class TvShowsGetter implements ITvShowsGetter {
   constructor(private readonly repository: ITvShowsRepository) {}
 
-  async get(): Promise<ITvShowEntity> {
-    const response = await this.repository.get();
+  async getDiscover(): Promise<ITvShowEntity> {
+    const response = await this.repository.getDiscover();
 
     return response.data;
   }

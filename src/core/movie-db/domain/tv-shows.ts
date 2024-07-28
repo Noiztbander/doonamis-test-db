@@ -36,7 +36,7 @@ export interface ITvShowDetail {
   languages?: string[];
   last_air_date?: string;
   first_air_date?: string;
-  created_by: {
+  created_by?: {
     id: string;
     credit_id: string;
     name: string;

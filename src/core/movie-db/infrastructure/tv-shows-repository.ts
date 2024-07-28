@@ -11,12 +11,12 @@ function responseHandler(res: Response) {
 }
 
 export interface ITvShowsRepository {
-  get(): Promise<RequestResponse<ITvShowEntity>>;
+  getDiscover(): Promise<RequestResponse<ITvShowEntity>>;
   getTvDetail({ id }: { id: string }): Promise<RequestResponse<ITvShowDetail>>;
 }
 
 export class TvShowsRepository implements ITvShowsRepository {
-  async get(): Promise<RequestResponse<ITvShowEntity>> {
+  async getDiscover(): Promise<RequestResponse<ITvShowEntity>> {
     try {
       const response = await fetch(
         `${movieDbConfig.baseUrl}/3/discover/tv?api_key=${movieDbConfig.apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`,
@@ -53,7 +53,7 @@ export class TvShowsRepository implements ITvShowsRepository {
 
       return { data: response };
     } catch (err) {
-      return { data: {} };
+      return { data: { seasons: [] } };
     }
   }
 }

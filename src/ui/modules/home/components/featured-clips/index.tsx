@@ -14,7 +14,7 @@ export default class FeaturedClips extends Component<{
       <div className="featuredClips_container">
         {this.props.title && (
           <BasicTitle
-            title="More:"
+            title={this.props.title}
             icon={<span className="material-symbols-outlined">apps</span>}
           />
         )}
