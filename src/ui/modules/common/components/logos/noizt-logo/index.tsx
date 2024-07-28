@@ -23,9 +23,8 @@ export default class NoiztLogo extends Component {
             alt="noizt-logo"
             color="white"
           />
+          <h1>| Movie Test</h1>
         </Link>
-
-        <h1>| Movie Test</h1>
       </div>
     );
   }
