@@ -10,9 +10,18 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const discoverTvShows = await new TvShowsGetter(
-    new TvShowsRepository()
-  ).getDiscover();
+  const repository = new TvShowsRepository();
+  const tvGetter = new TvShowsGetter(repository);
 
-  return <HomeTemplate discoverTvShows={discoverTvShows} />;
+  const discoverTvShows = await tvGetter.getDiscover();
+  const popularTvShows = await tvGetter.getPopular();
+  const topRatedTvShows = await tvGetter.getTopRated();
+
+  return (
+    <HomeTemplate
+      discoverTvShows={discoverTvShows}
+      popularTvShows={popularTvShows}
+      topRatedTvShows={topRatedTvShows}
+    />
+  );
 }

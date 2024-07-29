@@ -23,7 +23,7 @@ export default class BasicCarousel extends Component<ICarouselTemplateProps> {
         <>
           {this.props.title && (
             <BasicTitle
-              title="Seasons:"
+              title={this.props.title}
               icon={
                 <span className="material-symbols-outlined">width_normal</span>
               }

@@ -10,8 +10,19 @@ function responseHandler(res: Response) {
   return res.json();
 }
 
+const tvShowEntityErrorResponse = {
+  data: {
+    page: 1,
+    results: [],
+    total_pages: 0,
+    total_results: 0,
+  },
+};
+
 export interface ITvShowsRepository {
   getDiscover(): Promise<RequestResponse<ITvShowEntity>>;
+  getTopRated(): Promise<RequestResponse<ITvShowEntity>>;
+  getPopular(): Promise<RequestResponse<ITvShowEntity>>;
   getTvDetail({ id }: { id: string }): Promise<RequestResponse<ITvShowDetail>>;
 }
 
@@ -27,14 +38,37 @@ export class TvShowsRepository implements ITvShowsRepository {
 
       return { data: response };
     } catch (err) {
-      return {
-        data: {
-          page: 1,
-          results: [],
-          total_pages: 0,
-          total_results: 0,
-        },
-      };
+      return tvShowEntityErrorResponse;
+    }
+  }
+
+  async getTopRated(): Promise<RequestResponse<ITvShowEntity>> {
+    try {
+      const response = await fetch(
+        `${movieDbConfig.baseUrl}/3/tv/top_rated?api_key=${movieDbConfig.apiKey}`,
+        {
+          ...requestConfig("GET"),
+        }
+      ).then(responseHandler);
+
+      return { data: response };
+    } catch (err) {
+      return tvShowEntityErrorResponse;
+    }
+  }
+
+  async getPopular(): Promise<RequestResponse<ITvShowEntity>> {
+    try {
+      const response = await fetch(
+        `${movieDbConfig.baseUrl}/3/tv/popular?api_key=${movieDbConfig.apiKey}`,
+        {
+          ...requestConfig("GET"),
+        }
+      ).then(responseHandler);
+
+      return { data: response };
+    } catch (err) {
+      return tvShowEntityErrorResponse;
     }
   }
 

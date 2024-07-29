@@ -11,6 +11,18 @@ export class TvShowsGetter implements ITvShowsGetter {
     return response.data;
   }
 
+  async getTopRated(): Promise<ITvShowEntity> {
+    const response = await this.repository.getTopRated();
+
+    return response.data;
+  }
+
+  async getPopular(): Promise<ITvShowEntity> {
+    const response = await this.repository.getPopular();
+
+    return response.data;
+  }
+
   async getTvDetail(id: string): Promise<ITvShowDetail> {
     const response = await this.repository.getTvDetail({
       id,
