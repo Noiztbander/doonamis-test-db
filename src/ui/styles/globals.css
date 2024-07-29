@@ -9,6 +9,15 @@
   margin: 0;
 }
 
+*::-webkit-scrollbar {
+  width: 6px;
+  background-color: black;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
 html,
 body {
   overflow-x: hidden;
