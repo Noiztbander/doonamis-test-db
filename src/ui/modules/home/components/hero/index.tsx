@@ -5,7 +5,7 @@ import { AppContext } from "@/ui/lib/context/app-context/app-context";
 import { IAppContext } from "@/ui/lib/context/app-context/types";
 import ShowMoreBtn from "@/ui/modules/common/components/show-more-btn";
 
-import "./hero.css";
+import "./hero.scss";
 
 class Hero extends Component {
   static contextType = AppContext;

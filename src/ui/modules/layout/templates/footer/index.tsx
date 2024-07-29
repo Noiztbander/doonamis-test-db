@@ -2,8 +2,9 @@
 
 import { Component } from "react";
 
-import "./footer.css";
 import NoiztLogo from "@/ui/modules/common/components/logos/noizt-logo";
+
+import "./footer.scss";
 
 export default class Footer extends Component {
   render() {

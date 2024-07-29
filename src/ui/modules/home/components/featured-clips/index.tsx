@@ -2,8 +2,9 @@ import { ITvShow } from "@/core/movie-db/domain/tv-shows";
 import MediaImageItem from "@/ui/modules/common/components/media-image-item";
 import { Component, ReactNode } from "react";
 
-import "./featured-clips.css";
 import BasicTitle from "@/ui/modules/common/components/title";
+
+import "./featured-clips.scss";
 
 export default class FeaturedClips extends Component<{
   collections: ITvShow[];

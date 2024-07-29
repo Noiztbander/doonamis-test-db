@@ -2,8 +2,9 @@ import { Component } from "react";
 import Image from "next/image";
 
 import { ITvShowDetail } from "@/core/movie-db/domain/tv-shows";
-import "./detail-hero.css";
 import Link from "next/link";
+
+import "./detail-hero.scss";
 
 class DetailHero extends Component<{ media: ITvShowDetail }> {
   render() {

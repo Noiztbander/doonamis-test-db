@@ -1,8 +1,9 @@
 import { Component } from "react";
 
 import { ITvShowDetail } from "@/core/movie-db/domain/tv-shows";
-import "./side-bar.css";
 import AvatarName from "@/ui/modules/common/components/avatar/avatar-name";
+
+import "./side-bar.scss";
 
 interface ISideBarTemplateProps {
   media: ITvShowDetail;
@@ -24,7 +25,7 @@ export default class SideBar extends Component<ISideBarTemplateProps> {
           <p>{this.props.media.vote_count}</p>
         </div>
 
-        {!!this.props.media.created_by.length && (
+        {!!this.props.media.created_by?.length && (
           <div className="avatars">
             <h3>Created by:</h3>
             {this.props.media.created_by.map(({ name, id, profile_path }) => {

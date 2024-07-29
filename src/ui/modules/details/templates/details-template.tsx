@@ -7,12 +7,12 @@ import { ITvShowDetail, ITvShowEntity } from "@/core/movie-db/domain/tv-shows";
 import SectionContainer from "../../layout/templates/section-container";
 import DetailHero from "../components/detail-hero";
 import SideBar from "../components/side-bar";
-
-import "./details-template.css";
 import BasicCarousel, {
   ICarouselImage,
 } from "../../common/components/carousel";
 import FeaturedClips from "../../home/components/featured-clips";
+
+import "./details-template.scss";
 
 interface IDetailsTemplateProps {
   media: ITvShowDetail;

@@ -1,6 +1,6 @@
 import { Component, ReactNode } from "react";
 
-import "./title.css";
+import "./title.scss";
 
 interface IBasicTitleProps {
   title: string;

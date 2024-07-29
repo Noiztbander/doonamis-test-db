@@ -4,8 +4,9 @@ import { Component } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import "./noizt-logo.css";
 import { MOVIE_DB_PATHS } from "@/ui/constants";
+
+import "./noizt-logo.scss";
 
 export default class NoiztLogo extends Component {
   render() {

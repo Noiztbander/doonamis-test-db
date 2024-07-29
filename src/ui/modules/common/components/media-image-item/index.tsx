@@ -7,7 +7,7 @@ import { IAppContext } from "@/ui/lib/context/app-context/types";
 import { AppContext } from "@/ui/lib/context/app-context/app-context";
 import ShowMoreBtn from "../show-more-btn";
 
-import "./media-image-item.css";
+import "./media-image-item.scss";
 
 export default class MediaImageItem extends Component<{
   item: ITvShow;

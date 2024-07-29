@@ -1,7 +1,7 @@
 import { Component, ReactNode } from "react";
 import Image from "next/image";
 
-import "./avatar-name.css";
+import "./avatar-name.scss";
 
 interface IAvatarProps {
   name: string;

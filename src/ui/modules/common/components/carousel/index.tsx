@@ -1,9 +1,10 @@
 import { Component, ReactNode } from "react";
 import Carousel from "react-multi-carousel";
 
-import "./carousel.css";
 import ImageItemCarousel from "./image-item";
 import BasicTitle from "../title";
+
+import "./carousel.scss";
 
 export interface ICarouselImage {
   name: string;

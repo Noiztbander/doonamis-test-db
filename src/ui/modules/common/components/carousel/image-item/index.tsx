@@ -1,13 +1,13 @@
 import { Component, ReactNode } from "react";
 import Image from "next/image";
 
-import "./image-item-carousel.css";
 import { ICarouselImage } from "..";
 import { IAppContext } from "@/ui/lib/context/app-context/types";
 import { runSetSelectedMedia } from "@/ui/lib/context/app-context/actions/runs";
 import { AppContext } from "@/ui/lib/context/app-context/app-context";
-
 import ShowMoreBtn from "../../show-more-btn";
+
+import "./image-item-carousel.scss";
 
 export default class ImageItemCarousel extends Component<ICarouselImage> {
   static contextType = AppContext;

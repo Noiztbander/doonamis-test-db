@@ -1,4 +1,4 @@
-import "../ui/styles/globals.css";
+import "../ui/styles/globals.scss";
 import Nav from "@/ui/modules/layout/templates/nav";
 import Footer from "@/ui/modules/layout/templates/footer";
 

@@ -2,9 +2,10 @@
 
 import { Component } from "react";
 
-import "./nav.css";
 import NoiztLogo from "@/ui/modules/common/components/logos/noizt-logo";
 import AvatarName from "@/ui/modules/common/components/avatar/avatar-name";
+
+import "./nav.scss";
 
 export default class Nav extends Component {
   render() {

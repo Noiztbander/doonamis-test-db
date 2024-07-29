@@ -1,6 +1,6 @@
 import { Component, ReactNode } from "react";
 
-import "./section-container.css";
+import "./section-container.scss";
 
 export default class SectionContainer extends Component<{
   children: ReactNode;
