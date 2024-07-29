@@ -23,6 +23,7 @@ export interface ITvShowsRepository {
   getDiscover(): Promise<RequestResponse<ITvShowEntity>>;
   getTopRated(): Promise<RequestResponse<ITvShowEntity>>;
   getPopular(): Promise<RequestResponse<ITvShowEntity>>;
+  getRelated(id: string): Promise<RequestResponse<ITvShowEntity>>;
   getTvDetail({ id }: { id: string }): Promise<RequestResponse<ITvShowDetail>>;
 }
 
@@ -61,6 +62,21 @@ export class TvShowsRepository implements ITvShowsRepository {
     try {
       const response = await fetch(
         `${movieDbConfig.baseUrl}/3/tv/popular?api_key=${movieDbConfig.apiKey}`,
+        {
+          ...requestConfig("GET"),
+        }
+      ).then(responseHandler);
+
+      return { data: response };
+    } catch (err) {
+      return tvShowEntityErrorResponse;
+    }
+  }
+
+  async getRelated(id: string): Promise<RequestResponse<ITvShowEntity>> {
+    try {
+      const response = await fetch(
+        `${movieDbConfig.baseUrl}/3/tv/${id}/similar?api_key=${movieDbConfig.apiKey}`,
         {
           ...requestConfig("GET"),
         }

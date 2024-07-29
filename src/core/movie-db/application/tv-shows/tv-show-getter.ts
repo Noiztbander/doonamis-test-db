@@ -23,6 +23,12 @@ export class TvShowsGetter implements ITvShowsGetter {
     return response.data;
   }
 
+  async getRelated(id: string): Promise<ITvShowEntity> {
+    const response = await this.repository.getRelated(id);
+
+    return response.data;
+  }
+
   async getTvDetail(id: string): Promise<ITvShowDetail> {
     const response = await this.repository.getTvDetail({
       id,

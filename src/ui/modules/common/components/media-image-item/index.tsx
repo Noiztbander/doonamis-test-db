@@ -27,13 +27,28 @@ export default class MediaImageItem extends Component<{
           dispatch(runSetSelectedMedia(this.props.item));
         }}>
         <div className="image_container">
-          <Image
-            width={600}
-            height={900}
-            src={`${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${this.props.item.poster_path}`}
-            alt={`${this.props.item.name}`}
-            loading="lazy"
-          />
+          {!!this.props.item.poster_path ? (
+            <Image
+              width={600}
+              height={900}
+              src={`${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${this.props.item.poster_path}`}
+              alt={`${this.props.item.name}`}
+              loading="lazy"
+            />
+          ) : (
+            <div
+              style={{
+                backgroundColor: "white",
+                backgroundImage:
+                  "radial-gradient(rgb(60, 60, 60) 2px, transparent 2px), radial-gradient(rgb(60, 60, 60) 2px, transparent 2px)",
+                backgroundSize: "13px 13px",
+                backgroundPosition: "0 0, 6.5px 6.5px",
+                height: "300px",
+                position: "absolute",
+                aspectRatio: "auto 600 / 900",
+              }}
+            />
+          )}
         </div>
         <div>
           <h3>{this.props.item.name}</h3>

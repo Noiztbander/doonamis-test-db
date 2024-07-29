@@ -17,11 +17,9 @@ export default async function TvDetails({ params }: Props) {
     new TvShowsRepository()
   ).getTvDetail(params.id);
 
-  const discoverTvShows = await new TvShowsGetter(
+  const relatedTvShows = await new TvShowsGetter(
     new TvShowsRepository()
-  ).getDiscover();
+  ).getRelated(params.id);
 
-  return (
-    <DetailsTemplate media={tvDetails} discoverTvShows={discoverTvShows} />
-  );
+  return <DetailsTemplate media={tvDetails} relatedTvShows={relatedTvShows} />;
 }

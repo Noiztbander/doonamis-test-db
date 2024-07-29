@@ -16,7 +16,7 @@ import FeaturedClips from "../../home/components/featured-clips";
 
 interface IDetailsTemplateProps {
   media: ITvShowDetail;
-  discoverTvShows: ITvShowEntity;
+  relatedTvShows: ITvShowEntity;
 }
 
 export default class DetailsTemplate extends Component<IDetailsTemplateProps> {
@@ -48,8 +48,8 @@ export default class DetailsTemplate extends Component<IDetailsTemplateProps> {
                 />
 
                 <FeaturedClips
-                  collections={this.props.discoverTvShows.results}
-                  title="Discover: "
+                  collections={this.props.relatedTvShows.results}
+                  title="Related:"
                   showBtn={true}
                 />
               </div>
