@@ -41,11 +41,16 @@ export default class DetailsTemplate extends Component<IDetailsTemplateProps> {
             <div className="divider">
               <SideBar media={this.props.media} />
               <div className="showcase">
-                <BasicCarousel items={seasonCarouselItems} title="Seasons:" />
+                <BasicCarousel
+                  items={seasonCarouselItems}
+                  title="Seasons:"
+                  showBtn={false}
+                />
 
                 <FeaturedClips
                   collections={this.props.discoverTvShows.results}
                   title="Discover: "
+                  showBtn={true}
                 />
               </div>
             </div>

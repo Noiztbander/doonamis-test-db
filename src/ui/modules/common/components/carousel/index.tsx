@@ -14,11 +14,13 @@ export interface ICarouselImage {
   vote_count?: number;
   first_air_date?: string;
   backdrop_path?: string;
+  showBtn?: boolean;
 }
 
 interface ICarouselTemplateProps {
   items: ICarouselImage[];
   title?: string;
+  showBtn: boolean;
 }
 
 export default class BasicCarousel extends Component<ICarouselTemplateProps> {
@@ -93,7 +95,13 @@ export default class BasicCarousel extends Component<ICarouselTemplateProps> {
             showDots={false}
             slidesToSlide={1}>
             {this.props.items.map((props) => {
-              return <ImageItemCarousel key={props.id} {...props} />;
+              return (
+                <ImageItemCarousel
+                  key={props.id}
+                  {...props}
+                  showBtn={this.props.showBtn}
+                />
+              );
             })}
           </Carousel>
         </>
@@ -112,7 +120,13 @@ export default class BasicCarousel extends Component<ICarouselTemplateProps> {
         )}
         <div style={{ display: "flex", flexDirection: "row" }}>
           {this.props.items.map((props) => {
-            return <ImageItemCarousel key={props.id} {...props} />;
+            return (
+              <ImageItemCarousel
+                key={props.id}
+                {...props}
+                showBtn={this.props.showBtn}
+              />
+            );
           })}
         </div>
       </>

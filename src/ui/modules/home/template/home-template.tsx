@@ -42,15 +42,16 @@ export default class HomeTemplate extends Component<IHomeTemplateProps> {
             <Hero />
           </SectionContainer>
           <SectionContainer>
-            <BasicCarousel items={topRated} title="Top rated:" />
+            <BasicCarousel items={topRated} title="Top rated:" showBtn={true} />
           </SectionContainer>
           <SectionContainer>
-            <BasicCarousel items={popular} title="Popular:" />
+            <BasicCarousel items={popular} title="Popular:" showBtn={true} />
           </SectionContainer>
           <SectionContainer>
             <FeaturedClips
               collections={this.props.discoverTvShows.results}
               title="Discover: "
+              showBtn={true}
             />
           </SectionContainer>
         </main>

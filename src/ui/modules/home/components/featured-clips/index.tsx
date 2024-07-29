@@ -8,6 +8,7 @@ import BasicTitle from "@/ui/modules/common/components/title";
 export default class FeaturedClips extends Component<{
   collections: ITvShow[];
   title?: string;
+  showBtn: boolean;
 }> {
   render(): ReactNode {
     return (
@@ -23,7 +24,10 @@ export default class FeaturedClips extends Component<{
           {this.props.collections.map((collection: ITvShow) => {
             return (
               <li key={collection.id}>
-                <MediaImageItem item={collection} />
+                <MediaImageItem
+                  item={collection}
+                  showBtn={this.props.showBtn}
+                />
               </li>
             );
           })}

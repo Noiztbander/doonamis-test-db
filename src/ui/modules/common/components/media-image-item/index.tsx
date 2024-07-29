@@ -5,10 +5,13 @@ import { ITvShow } from "@/core/movie-db/domain/tv-shows";
 import { runSetSelectedMedia } from "@/ui/lib/context/app-context/actions/runs";
 import { IAppContext } from "@/ui/lib/context/app-context/types";
 import { AppContext } from "@/ui/lib/context/app-context/app-context";
+import ShowMoreBtn from "../show-more-btn";
+
 import "./media-image-item.css";
 
 export default class MediaImageItem extends Component<{
   item: ITvShow;
+  showBtn: boolean;
 }> {
   static contextType = AppContext;
 
@@ -18,7 +21,7 @@ export default class MediaImageItem extends Component<{
 
     return (
       <div
-        className="mediaIamgeitem-container"
+        className="mediaImageItem_container"
         key={this.props.item.id}
         onClick={() => {
           dispatch(runSetSelectedMedia(this.props.item));
@@ -33,14 +36,14 @@ export default class MediaImageItem extends Component<{
           />
         </div>
         <div>
-          <h3>
-            <strong>{this.props.item.name}</strong>
-          </h3>
-          <p className="votes">
-            Votes: {this.props.item.vote_count}
-            <span className="material-symbols-outlined">star</span>
-          </p>
+          <h3>{this.props.item.name}</h3>
+          <p className="votes">Votes: {this.props.item.vote_count}</p>
         </div>
+        {this.props.showBtn && (
+          <div className="moreInfo_Container">
+            <ShowMoreBtn id={this.props.item.id as number} />
+          </div>
+        )}
       </div>
     );
   }

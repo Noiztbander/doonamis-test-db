@@ -7,6 +7,8 @@ import { IAppContext } from "@/ui/lib/context/app-context/types";
 import { runSetSelectedMedia } from "@/ui/lib/context/app-context/actions/runs";
 import { AppContext } from "@/ui/lib/context/app-context/app-context";
 
+import ShowMoreBtn from "../../show-more-btn";
+
 export default class ImageItemCarousel extends Component<ICarouselImage> {
   static contextType = AppContext;
 
@@ -46,6 +48,12 @@ export default class ImageItemCarousel extends Component<ICarouselImage> {
         </div>
 
         <p>{this.props.name}</p>
+
+        {this.props.showBtn && (
+          <div className="moreInfo_Container">
+            <ShowMoreBtn id={this.props.id as number} />
+          </div>
+        )}
       </div>
     );
   }

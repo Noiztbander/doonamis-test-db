@@ -3,10 +3,9 @@ import Image from "next/image";
 
 import { AppContext } from "@/ui/lib/context/app-context/app-context";
 import { IAppContext } from "@/ui/lib/context/app-context/types";
+import ShowMoreBtn from "@/ui/modules/common/components/show-more-btn";
 
 import "./hero.css";
-import Link from "next/link";
-import { MOVIE_DB_PATHS } from "@/ui/constants";
 
 class Hero extends Component {
   static contextType = AppContext;
@@ -36,15 +35,7 @@ class Hero extends Component {
               </div>
             </div>
 
-            <Link
-              className="primary_btn"
-              passHref={true}
-              prefetch={true}
-              key={state.selectedMedia.id}
-              scroll={true}
-              href={`${MOVIE_DB_PATHS.TV_DETAIL}/${state.selectedMedia.id}`}>
-              More about
-            </Link>
+            <ShowMoreBtn id={state.selectedMedia.id} />
           </div>
         </div>
 
