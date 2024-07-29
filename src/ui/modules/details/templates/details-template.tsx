@@ -1,16 +1,18 @@
 "use client";
 
 import { Component } from "react";
+import dynamic from "next/dynamic";
 
 import { AppProvider } from "@/ui/lib/context/app-context/app-context";
 import { ITvShowDetail, ITvShowEntity } from "@/core/movie-db/domain/tv-shows";
 import SectionContainer from "../../layout/templates/section-container";
-import DetailHero from "../components/detail-hero";
 import SideBar from "../components/side-bar";
-import BasicCarousel, {
-  ICarouselImage,
-} from "../../common/components/carousel";
-import FeaturedClips from "../../home/components/featured-clips";
+import { ICarouselImage } from "../../common/components/carousel";
+const BasicCarousel = dynamic(() => import("../../common/components/carousel"));
+const DetailHero = dynamic(() => import("../components/detail-hero"));
+const FeaturedClips = dynamic(
+  () => import("../../home/components/featured-clips")
+);
 
 import "./details-template.scss";
 

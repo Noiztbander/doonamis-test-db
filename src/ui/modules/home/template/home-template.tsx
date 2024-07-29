@@ -1,33 +1,20 @@
 "use client";
 
 import { Component } from "react";
+import dynamic from "next/dynamic";
 
 import { AppProvider } from "@/ui/lib/context/app-context/app-context";
-import FeaturedClips from "../components/featured-clips";
-import { ITvShow, ITvShowEntity } from "@/core/movie-db/domain/tv-shows";
+import { ITvShowEntity } from "@/core/movie-db/domain/tv-shows";
 import SectionContainer from "../../layout/templates/section-container";
 import Hero from "../components/hero";
-import BasicCarousel, {
-  ICarouselImage,
-} from "../../common/components/carousel";
+import { getCarouselTvShowData } from "../../common/components/carousel/utils";
+const BasicCarousel = dynamic(() => import("../../common/components/carousel"));
+const FeaturedClips = dynamic(() => import("../components/featured-clips"));
 
 interface IHomeTemplateProps {
   discoverTvShows: ITvShowEntity;
   topRatedTvShows: ITvShowEntity;
   popularTvShows: ITvShowEntity;
-}
-
-function getCarouselTvShowData(media: ITvShow[]): ICarouselImage[] {
-  return media.map((item: ITvShow): ICarouselImage => {
-    return {
-      ...item,
-      name: item.name as string,
-      backdrop_path: (item.backdrop_path || item.poster_path) as string,
-      src: !!item.poster_path
-        ? `${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${item.poster_path}`
-        : undefined,
-    };
-  });
 }
 
 export default class HomeTemplate extends Component<IHomeTemplateProps> {
@@ -50,7 +37,7 @@ export default class HomeTemplate extends Component<IHomeTemplateProps> {
           <SectionContainer>
             <FeaturedClips
               collections={this.props.discoverTvShows.results}
-              title="Discover: "
+              title="Discover:"
               showBtn={true}
             />
           </SectionContainer>
