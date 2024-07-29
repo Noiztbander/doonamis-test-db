@@ -3,6 +3,8 @@ import Carousel from "react-multi-carousel";
 
 import ImageItemCarousel from "./image-item";
 import BasicTitle from "../title";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { PiSlideshowLight } from "react-icons/pi";
 
 import "./carousel.scss";
 
@@ -30,12 +32,7 @@ export default class BasicCarousel extends Component<ICarouselTemplateProps> {
       return (
         <>
           {this.props.title && (
-            <BasicTitle
-              title={this.props.title}
-              icon={
-                <span className="material-symbols-outlined">width_normal</span>
-              }
-            />
+            <BasicTitle title={this.props.title} icon={<PiSlideshowLight />} />
           )}
 
           <Carousel
@@ -43,7 +40,6 @@ export default class BasicCarousel extends Component<ICarouselTemplateProps> {
             arrows={true}
             centerMode={true}
             containerClass="carousel_container"
-            dotListClass="carousel_dots"
             draggable={false}
             focusOnSelect={false}
             infinite={true}
@@ -54,14 +50,14 @@ export default class BasicCarousel extends Component<ICarouselTemplateProps> {
             renderButtonGroupOutside={false}
             renderDotsOutside={true}
             customLeftArrow={
-              <span className="material-symbols-outlined arrow_left primary_btn">
-                arrow_left
-              </span>
+              <div className="arrow_left primary_btn">
+                <IoIosArrowBack />
+              </div>
             }
             customRightArrow={
-              <span className="material-symbols-outlined arrow_right primary_btn">
-                arrow_right
-              </span>
+              <div className="arrow_right primary_btn">
+                <IoIosArrowForward />
+              </div>
             }
             responsive={{
               desktop: {

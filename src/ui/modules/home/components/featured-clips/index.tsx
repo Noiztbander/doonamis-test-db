@@ -3,6 +3,7 @@ import MediaImageItem from "@/ui/modules/common/components/media-image-item";
 import { Component, ReactNode } from "react";
 
 import BasicTitle from "@/ui/modules/common/components/title";
+import { IoApps } from "react-icons/io5";
 
 import "./featured-clips.scss";
 
@@ -15,10 +16,7 @@ export default class FeaturedClips extends Component<{
     return (
       <div className="featuredClips_container">
         {this.props.title && (
-          <BasicTitle
-            title={this.props.title}
-            icon={<span className="material-symbols-outlined">apps</span>}
-          />
+          <BasicTitle title={this.props.title} icon={<IoApps />} />
         )}
 
         <ul className="images_showcase">

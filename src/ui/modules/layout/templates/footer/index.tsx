@@ -3,6 +3,7 @@
 import { Component } from "react";
 
 import NoiztLogo from "@/ui/modules/common/components/logos/noizt-logo";
+import { FaInstagram, FaTwitter, FaWhatsapp, FaFacebook } from "react-icons/fa";
 
 import "./footer.scss";
 
@@ -20,16 +21,16 @@ export default class Footer extends Component {
           </nav>
           <ul>
             <li>
-              <span className="material-symbols-outlined">star</span>
+              <FaInstagram />
             </li>
             <li>
-              <span className="material-symbols-outlined">thumb_up</span>
+              <FaTwitter />
             </li>
             <li>
-              <span className="material-symbols-outlined">share</span>
+              <FaWhatsapp />
             </li>
             <li>
-              <span className="material-symbols-outlined">favorite</span>
+              <FaFacebook />
             </li>
           </ul>
           <p>©2024 | NOIZTBANDER | Creative developer</p>

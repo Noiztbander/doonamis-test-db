@@ -2,6 +2,7 @@ import { Component } from "react";
 
 import { ITvShowDetail } from "@/core/movie-db/domain/tv-shows";
 import AvatarName from "@/ui/modules/common/components/avatar/avatar-name";
+import { TiStar } from "react-icons/ti";
 
 import "./side-bar.scss";
 
@@ -16,8 +17,7 @@ export default class SideBar extends Component<ISideBarTemplateProps> {
         <div>
           <h3>Popularity: </h3>
           <p>
-            {this.props.media.vote_average?.toFixed(1)} / 10{" "}
-            <span className="material-symbols-outlined">star</span>
+            {this.props.media.vote_average?.toFixed(1)} / 10 <TiStar />
           </p>
         </div>
         <div>
