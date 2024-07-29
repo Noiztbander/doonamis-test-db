@@ -2,17 +2,26 @@ import { Component, ReactNode } from "react";
 import Image from "next/image";
 
 import "./image-item-carousel.css";
+import { ICarouselImage } from "..";
+import { IAppContext } from "@/ui/lib/context/app-context/types";
+import { runSetSelectedMedia } from "@/ui/lib/context/app-context/actions/runs";
+import { AppContext } from "@/ui/lib/context/app-context/app-context";
 
-interface IImageItemCarouselprops {
-  name: string;
-  src?: string;
-}
+export default class ImageItemCarousel extends Component<ICarouselImage> {
+  static contextType = AppContext;
 
-export default class ImageItemCarousel extends Component<IImageItemCarouselprops> {
   render(): ReactNode {
+    const context = this.context;
+    const { dispatch } = context as unknown as IAppContext;
+
     return (
       <div className="imageCarousel_container">
-        <div className="image_container">
+        <div
+          className="image_container"
+          onClick={() => {
+            const item = { ...this.props, id: this.props.id as number };
+            dispatch(runSetSelectedMedia(item));
+          }}>
           {this.props.src ? (
             <Image
               width={600}

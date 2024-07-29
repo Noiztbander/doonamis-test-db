@@ -18,22 +18,19 @@ interface IHomeTemplateProps {
 }
 
 function getCarouselTvShowData(media: ITvShow[]): ICarouselImage[] {
-  return media.map(({ id, name, poster_path }: ITvShow): ICarouselImage => {
+  return media.map((item: ITvShow): ICarouselImage => {
     return {
-      id,
-      name: name as string,
-      src: !!poster_path
-        ? `${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${poster_path}`
+      ...item,
+      name: item.name as string,
+      backdrop_path: (item.backdrop_path || item.poster_path) as string,
+      src: !!item.poster_path
+        ? `${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${item.poster_path}`
         : undefined,
     };
   });
 }
 
 export default class HomeTemplate extends Component<IHomeTemplateProps> {
-  constructor(props: IHomeTemplateProps) {
-    super(props);
-  }
-
   render() {
     const topRated = getCarouselTvShowData(this.props.topRatedTvShows.results);
     const popular = getCarouselTvShowData(this.props.popularTvShows.results);

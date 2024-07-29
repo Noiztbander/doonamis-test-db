@@ -1,4 +1,5 @@
 .imageCarousel_container {
+  cursor: pointer;
   width: 300px;
 
   .image_container {

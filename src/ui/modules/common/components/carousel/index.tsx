@@ -9,6 +9,11 @@ export interface ICarouselImage {
   name: string;
   src?: string;
   id?: number;
+  overview?: string;
+  popularity?: number;
+  vote_count?: number;
+  first_air_date?: string;
+  backdrop_path?: string;
 }
 
 interface ICarouselTemplateProps {
@@ -87,8 +92,8 @@ export default class BasicCarousel extends Component<ICarouselTemplateProps> {
             shouldResetAutoplay={false}
             showDots={false}
             slidesToSlide={1}>
-            {this.props.items.map(({ name, src, id }) => {
-              return <ImageItemCarousel key={id} src={src} name={name} />;
+            {this.props.items.map((props) => {
+              return <ImageItemCarousel key={props.id} {...props} />;
             })}
           </Carousel>
         </>
@@ -106,8 +111,8 @@ export default class BasicCarousel extends Component<ICarouselTemplateProps> {
           />
         )}
         <div style={{ display: "flex", flexDirection: "row" }}>
-          {this.props.items.map(({ name, src, id }) => {
-            return <ImageItemCarousel key={id} src={src} name={name} />;
+          {this.props.items.map((props) => {
+            return <ImageItemCarousel key={props.id} {...props} />;
           })}
         </div>
       </>

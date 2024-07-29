@@ -23,13 +23,15 @@ export default class MediaImageItem extends Component<{
         onClick={() => {
           dispatch(runSetSelectedMedia(this.props.item));
         }}>
-        <Image
-          width={300}
-          height={300}
-          src={`${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${this.props.item.poster_path}`}
-          alt={`${this.props.item.name}`}
-          loading="lazy"
-        />
+        <div className="image_container">
+          <Image
+            width={600}
+            height={900}
+            src={`${process.env.NEXT_PUBLIC_MOVIE_DB_API_IMAGES_BASE_URL}/t/p/w600_and_h900_bestv2/${this.props.item.poster_path}`}
+            alt={`${this.props.item.name}`}
+            loading="lazy"
+          />
+        </div>
         <div>
           <h3>
             <strong>{this.props.item.name}</strong>
