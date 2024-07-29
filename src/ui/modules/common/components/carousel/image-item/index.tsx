@@ -3,7 +3,10 @@ import Image from "next/image";
 
 import { ICarouselImage } from "..";
 import { IAppContext } from "@/ui/lib/context/app-context/types";
-import { runSetSelectedMedia } from "@/ui/lib/context/app-context/actions/runs";
+import {
+  runSetModalVisibility,
+  runSetSelectedMedia,
+} from "@/ui/lib/context/app-context/actions/runs";
 import { AppContext } from "@/ui/lib/context/app-context/app-context";
 import ShowMoreBtn from "../../show-more-btn";
 
@@ -23,6 +26,7 @@ export default class ImageItemCarousel extends Component<ICarouselImage> {
           onClick={() => {
             const item = { ...this.props, id: this.props.id as number };
             dispatch(runSetSelectedMedia(item));
+            dispatch(runSetModalVisibility(true));
           }}>
           {this.props.src ? (
             <Image

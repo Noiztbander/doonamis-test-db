@@ -1,5 +1,13 @@
-import { SET_SELECTED_MEDIA, UPDATE_SELECTED_TAB } from "./actions/names";
-import { setSelectedMedia, updateSelectedtab } from "./actions/types";
+import {
+  SET_MODAL_VISIBILITY,
+  SET_SELECTED_MEDIA,
+  UPDATE_SELECTED_TAB,
+} from "./actions/names";
+import {
+  setModalVisibility,
+  setSelectedMedia,
+  updateSelectedtab,
+} from "./actions/types";
 import { IInitialAppState as State } from "./app-provider-state";
 
 export const AppReducerHandler = {
@@ -10,5 +18,12 @@ export const AppReducerHandler = {
   [SET_SELECTED_MEDIA]: (state: State, action: setSelectedMedia): State => ({
     ...state,
     selectedMedia: action.value,
+  }),
+  [SET_MODAL_VISIBILITY]: (
+    state: State,
+    action: setModalVisibility
+  ): State => ({
+    ...state,
+    isOpen: action.value,
   }),
 };

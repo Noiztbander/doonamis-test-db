@@ -1,0 +1,97 @@
+.detailModal_container {
+  position: fixed;
+  z-index: 100;
+  width: 20vw;
+  height: 20vh;
+  max-width: 500px;
+  max-height: 300px;
+  min-width: 400px;
+  min-height: 300px;
+  background-color: rgb(17, 4, 4);
+  bottom: var(--s-gap);
+  left: var(--s-gap);
+  overflow: hidden;
+  transition: 0.3s;
+
+  .description_container {
+    padding: 30px;
+    z-index: 150;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+
+    h1 {
+      color: white;
+      max-width: 300px;
+    }
+
+    .description {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      > div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .rate {
+          display: flex;
+          flex-direction: row;
+          gap: 30px;
+
+          h4 {
+            color: white;
+            padding-bottom: 5px;
+          }
+
+          span {
+            color: white;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .seeMore_btn {
+        padding: 15px;
+        text-align: center;
+        text-wrap: nowrap;
+        font-weight: bolder;
+        background-color: white;
+      }
+    }
+  }
+
+  .background {
+    z-index: 10;
+    overflow: hidden;
+
+    img {
+      filter: brightness(30%);
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.opened {
+  width: 100px;
+  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .description_container {
+    opacity: 0;
+  }
+}

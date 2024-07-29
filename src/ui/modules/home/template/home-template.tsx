@@ -8,6 +8,7 @@ import { ITvShowEntity } from "@/core/movie-db/domain/tv-shows";
 import SectionContainer from "../../layout/templates/section-container";
 import Hero from "../components/hero";
 import { getCarouselTvShowData } from "../../common/components/carousel/utils";
+import DetailModal from "../../common/components/detail-modal";
 const BasicCarousel = dynamic(() => import("../../common/components/carousel"));
 const FeaturedClips = dynamic(() => import("../components/featured-clips"));
 
@@ -41,6 +42,8 @@ export default class HomeTemplate extends Component<IHomeTemplateProps> {
               showBtn={true}
             />
           </SectionContainer>
+
+          <DetailModal />
         </main>
       </AppProvider>
     );

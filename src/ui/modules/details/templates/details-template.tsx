@@ -15,6 +15,7 @@ const FeaturedClips = dynamic(
 );
 
 import "./details-template.scss";
+import DetailModal from "../../common/components/detail-modal";
 
 interface IDetailsTemplateProps {
   media: ITvShowDetail;
@@ -57,6 +58,8 @@ export default class DetailsTemplate extends Component<IDetailsTemplateProps> {
               </div>
             </div>
           </SectionContainer>
+
+          <DetailModal />
         </main>
       </AppProvider>
     );

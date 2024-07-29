@@ -3,6 +3,7 @@ import { ITvShow } from "@/core/movie-db/domain/tv-shows";
 export interface IInitialAppState {
   selectedTab?: string;
   selectedMedia: ITvShow;
+  isOpen: boolean;
 }
 
 export const initialTvShow: ITvShow = {
@@ -21,4 +22,5 @@ export const initialTvShow: ITvShow = {
 export const initialAppState: IInitialAppState = {
   selectedTab: "/",
   selectedMedia: initialTvShow,
+  isOpen: false,
 };

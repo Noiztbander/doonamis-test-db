@@ -2,7 +2,10 @@ import { Component, ReactNode } from "react";
 import Image from "next/image";
 
 import { ITvShow } from "@/core/movie-db/domain/tv-shows";
-import { runSetSelectedMedia } from "@/ui/lib/context/app-context/actions/runs";
+import {
+  runSetModalVisibility,
+  runSetSelectedMedia,
+} from "@/ui/lib/context/app-context/actions/runs";
 import { IAppContext } from "@/ui/lib/context/app-context/types";
 import { AppContext } from "@/ui/lib/context/app-context/app-context";
 import ShowMoreBtn from "../show-more-btn";
@@ -25,6 +28,7 @@ export default class MediaImageItem extends Component<{
         key={this.props.item.id}
         onClick={() => {
           dispatch(runSetSelectedMedia(this.props.item));
+          dispatch(runSetModalVisibility(true));
         }}>
         <div className="image_container">
           {!!this.props.item.poster_path ? (
@@ -52,7 +56,6 @@ export default class MediaImageItem extends Component<{
         </div>
         <div>
           <h3>{this.props.item.name}</h3>
-          <p className="votes">Votes: {this.props.item.vote_count}</p>
         </div>
         {this.props.showBtn && (
           <div className="moreInfo_Container">
