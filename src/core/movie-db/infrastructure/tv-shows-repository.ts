@@ -2,6 +2,7 @@ import { RequestResponse } from "@/core/types/RequestResponse";
 import { ITvShowDetail, ITvShowEntity } from "../domain/tv-shows";
 import { requestConfig } from "@/core/utils/requestConfig";
 import { movieDbConfig } from "../config";
+import { initialTvShow } from "@/ui/lib/context/app-context/app-provider-state";
 
 function responseHandler(res: Response) {
   if (!res.ok) {
@@ -10,10 +11,10 @@ function responseHandler(res: Response) {
   return res.json();
 }
 
-const tvShowEntityErrorResponse = {
+const tvShowEntityErrorResponse: { data: ITvShowEntity } = {
   data: {
     page: 1,
-    results: [],
+    results: [initialTvShow],
     total_pages: 0,
     total_results: 0,
   },
